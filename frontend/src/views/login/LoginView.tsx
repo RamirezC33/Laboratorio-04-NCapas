@@ -213,7 +213,7 @@ export default function AuthView() {
           </Tabs>
         </div>
 
-        <div className="hidden flex-col items-center justify-center gap-6 bg-gradient-to-br from-blue-600 to-blue-900 p-10 text-white md:flex md:w-1/2">
+        <div className="hidden flex-col items-center justify-center gap-6 bg-gradient-to-br from-red-500 to-red-800 p-10 text-white md:flex md:w-1/2">
           <div className="flex flex-col items-center gap-3 text-center">
             <span className="text-6xl">🏦</span>
             <h2 className="text-3xl font-extrabold">Sistema Financiero</h2>
