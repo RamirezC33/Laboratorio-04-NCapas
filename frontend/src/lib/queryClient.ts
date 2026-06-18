@@ -16,4 +16,7 @@ export const queryKeys = {
   users: ['users'],
   roles: ['roles'],
   permissions: ['permissions'],
+  cuentas: ['cuentas'],
+  categorias: ['categorias'],
+  movimientos: ['movimientos'],
 }
