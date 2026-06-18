@@ -213,8 +213,35 @@ export default function AuthView() {
           </Tabs>
         </div>
 
-        <div className="hidden md:block md:w-1/2">
-          <img src={''} alt="Login" className="h-full w-full object-cover" />
+        <div className="hidden flex-col items-center justify-center gap-6 bg-gradient-to-br from-blue-600 to-blue-900 p-10 text-white md:flex md:w-1/2">
+          <div className="flex flex-col items-center gap-3 text-center">
+            <span className="text-6xl">🏦</span>
+            <h2 className="text-3xl font-extrabold">Sistema Financiero</h2>
+            <p className="max-w-xs text-sm leading-relaxed text-blue-200">
+              Gestión de cuentas bancarias y movimientos multimoneda con control
+              total de tus finanzas.
+            </p>
+          </div>
+          <div className="flex w-full max-w-xs flex-col gap-3">
+            <div className="flex items-center gap-3 rounded-lg bg-white/10 px-4 py-3">
+              <span className="text-xl">💳</span>
+              <span className="text-sm font-medium">
+                Cuentas de ahorro y corriente
+              </span>
+            </div>
+            <div className="flex items-center gap-3 rounded-lg bg-white/10 px-4 py-3">
+              <span className="text-xl">💱</span>
+              <span className="text-sm font-medium">
+                Movimientos multimoneda
+              </span>
+            </div>
+            <div className="flex items-center gap-3 rounded-lg bg-white/10 px-4 py-3">
+              <span className="text-xl">🔄</span>
+              <span className="text-sm font-medium">
+                Transferencias entre cuentas
+              </span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
