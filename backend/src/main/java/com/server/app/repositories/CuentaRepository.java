@@ -7,5 +7,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface CuentaRepository extends JpaRepository<Cuenta, Long> {
 
-    Page<Cuenta> findByUsuarioId(Pageable pageable, Integer usuarioId);
+    Page<Cuenta> findByUsuario_Id(Pageable pageable, Integer usuarioId);
 }

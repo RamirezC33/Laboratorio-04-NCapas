@@ -23,7 +23,7 @@ public class CuentaService {
 
     public Page<Cuenta> findAll(int page, int size, String token) {
         Integer userId = jwt.extractIdUser(token);
-        return cuentaRepository.findByUsuarioId(PageRequest.of(page, size), userId);
+        return cuentaRepository.findByUsuario_Id(PageRequest.of(page, size), userId);
     }
 
     @Transactional
