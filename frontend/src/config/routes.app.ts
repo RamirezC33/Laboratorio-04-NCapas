@@ -45,4 +45,18 @@ export const routesConfig: Record<RoutesEnum, RouteConfig> = {
     title: 'Permisos',
     search: true,
   },
+  [RoutesEnum.CUENTAS]: {
+    auth: true,
+    roles: ['*'],
+    permission: ['*'],
+    title: 'Cuentas',
+    search: false,
+  },
+  [RoutesEnum.MOVIMIENTOS]: {
+    auth: true,
+    roles: ['*'],
+    permission: ['*'],
+    title: 'Movimientos',
+    search: false,
+  },
 } as const
