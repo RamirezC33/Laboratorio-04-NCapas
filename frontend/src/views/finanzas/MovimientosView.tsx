@@ -26,6 +26,7 @@ import {
   movimientoService,
 } from '@/services/api'
 import errorResponse from '@/utils/errorResponse'
+import dayjs from 'dayjs'
 import type { Dayjs } from 'dayjs'
 
 const { RangePicker } = DatePicker
@@ -182,7 +183,14 @@ export default function MovimientosView() {
       dataIndex: 'fecha',
       key: 'fecha',
       align: 'center',
-      render: (v: string) => new Date(v).toLocaleDateString(),
+      render: (v: unknown) =>
+        v
+          ? dayjs(
+              Array.isArray(v)
+                ? (v as number[]).slice(0, 6).join('-')
+                : String(v)
+            ).format('DD/MM/YYYY HH:mm')
+          : '—',
     },
     {
       title: 'Descripción',
