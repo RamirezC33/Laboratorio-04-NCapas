@@ -183,14 +183,18 @@ export default function MovimientosView() {
       dataIndex: 'fecha',
       key: 'fecha',
       align: 'center',
-      render: (v: unknown) =>
-        v
-          ? dayjs(
-              Array.isArray(v)
-                ? (v as number[]).slice(0, 6).join('-')
-                : String(v)
-            ).format('DD/MM/YYYY HH:mm')
-          : '—',
+      render: (v: unknown) => {
+        if (!v) return '—'
+        let iso: string
+        if (Array.isArray(v)) {
+          const [y, mo, d, h = 0, mi = 0, s = 0] = v as number[]
+          iso = `${y}-${String(mo).padStart(2, '0')}-${String(d).padStart(2, '0')}T${String(h).padStart(2, '0')}:${String(mi).padStart(2, '0')}:${String(s).padStart(2, '0')}`
+        } else {
+          iso = String(v).replace(/(\.\d{3})\d+/, '$1')
+        }
+        const parsed = dayjs(iso)
+        return parsed.isValid() ? parsed.format('DD/MM/YYYY HH:mm') : '—'
+      },
     },
     {
       title: 'Descripción',
