@@ -12,8 +12,8 @@ import java.time.LocalDateTime;
 public interface MovimientoRepository extends JpaRepository<Movimiento, Long> {
 
     @Query("SELECT m FROM Movimiento m WHERE m.cuenta.id = :cuentaId " +
-            "AND (:fechaInicio IS NULL OR m.fecha >= :fechaInicio) " +
-            "AND (:fechaFin IS NULL OR m.fecha <= :fechaFin)")
+            "AND m.fecha >= :fechaInicio AND m.fecha <= :fechaFin " +
+            "ORDER BY m.fecha DESC")
     Page<Movimiento> findByCuentaAndFecha(
             Pageable pageable,
             @Param("cuentaId") Long cuentaId,

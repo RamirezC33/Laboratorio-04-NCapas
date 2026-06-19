@@ -28,8 +28,10 @@ public class MovimientoService {
     private final CategoriaRepository categoriaRepository;
 
     public Page<Movimiento> findAll(int page, int size, Long cuentaId, LocalDateTime fechaInicio, LocalDateTime fechaFin) {
+        LocalDateTime inicio = fechaInicio != null ? fechaInicio : LocalDateTime.of(2000, 1, 1, 0, 0);
+        LocalDateTime fin = fechaFin != null ? fechaFin : LocalDateTime.now().plusYears(50);
         return movimientoRepository.findByCuentaAndFecha(
-                PageRequest.of(page, size), cuentaId, fechaInicio, fechaFin
+                PageRequest.of(page, size), cuentaId, inicio, fin
         );
     }
 
